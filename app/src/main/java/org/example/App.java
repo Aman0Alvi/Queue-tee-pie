@@ -9,6 +9,29 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Puppy puppy = new Puppy();
+        Kitty kitty = new Kitty();
+        PygmyMarmoset marmoset = new PygmyMarmoset();
+
+        QueueTees queue = new QueueTees();
+
+        System.out.println("Initial size: " + queue.size());
+
+        queue.enqueue(puppy);
+        queue.enqueue(kitty);
+        queue.enqueue(marmoset);
+
+        System.out.println("Size after enqueues: " + queue.size());
+
+        Cutie first = queue.dequeue();
+        System.out.println("First dequeue: " + first.description() + " (" + first.cutenessRating() + "/10)");
+
+        Cutie second = queue.dequeue();
+        System.out.println("Second dequeue: " + second.description() + " (" + second.cutenessRating() + "/10)");
+
+        Cutie third = queue.dequeue();
+        System.out.println("Third dequeue: " + third.description() + " (" + third.cutenessRating() + "/10)");
+
+        System.out.println("Final size: " + queue.size());
     }
 }
